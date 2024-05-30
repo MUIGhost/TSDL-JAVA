@@ -1,0 +1,1672 @@
+﻿1. Abstraction
+
+
+package shri;
+//Abstract class
+abstract class Shape {
+// Abstract method
+public abstract void draw();
+}
+//Concrete class implementing the abstract class
+class Circle extends Shape {
+@Override
+public void draw() {
+    System.out.println("Drawing a circle");
+}
+}
+//Concrete class implementing the abstract class
+class Rectangle extends Shape {
+@Override
+public void draw() {
+    System.out.println("Drawing a rectangle");
+}
+}
+public class abst {
+public static void main(String[] args) {
+    // Creating objects of concrete classes
+    Circle circle = new Circle();
+    Rectangle rectangle = new Rectangle();
+    // Calling the draw method on objects
+    circle.draw();
+    rectangle.draw();
+}
+}
+
+
+
+
+2. Abstraction Method
+
+
+package shri;
+abstract class Shape {
+   abstract double area(); // Abstract method
+}
+class Rectangle extends Shape {
+   private double length;
+   private double width;
+   public Rectangle(double length, double width) {
+       this.length = length;
+       this.width = width;
+   }
+   @Override
+   double area() { // Concrete implementation of abstract method
+       return length * width;
+   }
+}
+class Circle extends Shape {
+   private double radius;
+   public Circle(double radius) {
+       this.radius = radius;
+   }
+   @Override
+   double area() { // Concrete implementation of abstract method
+       return Math.PI * radius * radius;
+   }
+}
+public class AbstMethod {
+   public static void main(String[] args) {
+       Shape rectangle = new Rectangle(5, 4);
+       System.out.println("Area of rectangle: " + rectangle.area());
+       Shape circle = new Circle(3);
+       System.out.println("Area of circle: " + circle.area());
+   }
+}
+
+
+3. Abstract Class
+
+
+package shri;
+//Abstract class
+abstract class Sha {
+// Abstract method
+abstract double area();
+// Concrete method
+void display() {
+    System.out.println("This is a shape.");
+}
+}
+//Concrete subclass
+class Rect extends Sha {
+private double length;
+private double width;
+public Rect(double length, double width) {
+    this.length = length;
+    this.width = width;
+}
+// Implementation of abstract method
+@Override
+double area() {
+    return length * width;
+}
+}
+//Main class
+public class AbstractClass {
+public static void main(String[] args) {
+    // Create an object of Rectangle class
+    Rect rectangle = new Rect(5, 3);
+    // Call the methods
+    rectangle.display(); // Output: This is a shape.
+    System.out.println("Area of rectangle: " + rectangle.area()); // Output: Area of rectangle: 15.0
+}
+}
+
+
+4. Arithmetic Exception
+
+
+package shri;
+public class arithexp {
+        public static void main(String[] args) {
+                try {
+                        int data = 50 / 0; // may throw exception
+                }
+                // handling the exception
+                catch (ArithmeticException e) {
+                        System.out.println(e);
+                }
+                System.out.println("rest of the code1");
+        }
+}
+
+
+5. Finally Block exception
+
+
+package shri;
+public class finallyblock {
+   public static void main(String[] args) {
+       try {
+           int result = divide(10, 0); // Attempting to divide by zero
+           System.out.println("Result: " + result);
+       } catch (ArithmeticException e) {
+           System.out.println("Arithmetic exception: " + e.getMessage());
+       } finally {
+           System.out.println("Finally block executed");
+       }
+   }
+   public static int divide(int a, int b) {
+       return a / b;
+   }
+}
+
+
+6. Multiple Try & Catch
+
+
+package shri;
+public class multipletrycatch {
+   public static void main(String[] args) {
+       try {
+           int[] numbers = {1, 2, 3};
+           System.out.println(numbers[4]); // Accessing an element out of bounds
+       } catch (ArrayIndexOutOfBoundsException e) {
+           System.out.println("Array index out of bounds exception: " + e.getMessage());
+       }
+       try {
+           String str = null;
+           System.out.println(str.length()); // Attempting to invoke a method on null reference
+       } catch (NullPointerException e) {
+           System.out.println("Null pointer exception: " + e.getMessage());
+       }
+       try {
+           int result = 10 / 0; // Attempting to divide by zero
+           System.out.println("Result: " + result);
+       } catch (ArithmeticException e) {
+           System.out.println("Arithmetic exception: " + e.getMessage());
+       }
+       System.out.println("End of program");
+   }
+}
+
+
+7. Array List 
+
+
+package shri;
+import java.util.ArrayList;
+public class arraylist {
+   public static void main(String[] args) {
+       // Creating an ArrayList of strings
+       ArrayList<String> fruits = new ArrayList<>();
+       // Adding elements to the ArrayList
+       fruits.add("Apple");
+       fruits.add("Banana");
+       fruits.add("Orange");
+       // Displaying the elements of the ArrayList
+       System.out.println("Fruits in the list:");
+       for (String fruit : fruits) {
+           System.out.println(fruit);
+       }
+       // Getting the size of the ArrayList
+       int size = fruits.size();
+       System.out.println("Size of the list: " + size);
+       // Checking if the ArrayList is empty
+       boolean isEmpty = fruits.isEmpty();
+       System.out.println("Is the list empty? " + isEmpty);
+       // Removing an element from the ArrayList
+       fruits.remove("Banana");
+       // Displaying the updated list
+       System.out.println("Fruits after removing Banana:");
+       for (String fruit : fruits) {
+           System.out.println(fruit);
+       }
+   }
+}
+
+
+8. Array insertion and sort
+
+
+package shri;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+
+public class ArrayListInsertionSort {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+
+        System.out.println("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            int num = scanner.nextInt();
+            numbers.add(num);
+        }
+
+
+        // Sort the elements
+        Collections.sort(numbers);
+
+
+        System.out.println("Elements inserted into the ArrayList (sorted):");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+
+
+        scanner.close();
+    }
+}
+
+
+
+
+9. Array out of bound
+
+
+package shri;
+public class arrayoutofbound {
+        public static void main(String[] args) {
+                try {
+                        int arr[] = { 1, 3, 5, 7 };
+                        System.out.println(arr[10]); // may throw exception
+                }
+                // handling the array exception
+                catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.println(e);
+                }
+                System.out.println("rest of the code");
+        }
+}
+
+
+10. Sum of Arrays
+
+
+package shri;
+import java.util.Scanner;
+public class ArraySum {
+        public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                // Input the size of the array
+                System.out.print("Enter the size of the array: ");
+                int size = scanner.nextInt();
+                // Input array elements
+                int[] array = new int[size];
+                System.out.println("Enter the elements of the array:");
+                for (int i = 0; i < size; i++) {
+                        array[i] = scanner.nextInt();
+                }
+                // Calculate sum of array elements
+                int sum = calculateSum(array);
+                // Display the sum
+                System.out.println("Sum of the array elements: " + sum);
+        }
+        // Method to calculate the sum of array elements
+        public static int calculateSum(int[] array) {
+                int sum = 0;
+                for (int num : array) {
+                        sum += num;
+                }
+                return sum;
+        }
+}
+
+
+
+
+11. Attendance Thread 
+
+
+package shri;
+class ThreadAttendance extends Thread {
+         private String className;
+         public ThreadAttendance(String className) {
+             this.className = className;
+         }
+         @Override
+         public void run() {
+             for (int day = 1; day <= 5; day++) {
+                 System.out.println("Class: " + className + ", Day: " + day);
+                 // Simulate attendance marking by printing names of students present
+                 System.out.println("   Shriyog: Present");
+                 System.out.println("   Naresh: Present");
+                 System.out.println("   Aryan: Present");
+                 try {
+                     Thread.sleep(1000); // Simulating a day's duration
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
+             }
+         }
+        }
+        class RunnableAttendance implements Runnable {
+         private String studentName;
+         public RunnableAttendance(String studentName) {
+             this.studentName = studentName;
+         }
+         @Override
+         public void run() {
+             for (int day = 1; day <= 5; day++) {
+                 // Simulate a student arriving late
+                 System.out.println("Day " + day + ": " + studentName + " is late!");
+                 try {
+                     Thread.sleep(500); // Simulating a day's duration
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
+             }
+         }
+        }
+        public class Attendance {
+         public static void main(String[] args) {
+             // Create instances of ThreadAttendance for different classes and start them
+             ThreadAttendance class1 = new ThreadAttendance("Class 1");
+             ThreadAttendance class2 = new ThreadAttendance("Class 2");
+             class1.start();
+             class2.start();
+             // Create instances of RunnableAttendance for different students and execute them using a single thread
+             RunnableAttendance student1 = new RunnableAttendance("Shriyog");
+             RunnableAttendance student2 = new RunnableAttendance("Naresh");
+             RunnableAttendance student3 = new RunnableAttendance("Aryan");
+             // Execute RunnableAttendance instances using a single thread
+             Thread studentThread = new Thread(student1);
+             studentThread.start();
+             // Wait for studentThread to finish before starting the next student
+             try {
+                 studentThread.join();
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+             new Thread(student2).start();
+             new Thread(student3).start();
+         }
+        }
+
+
+12. Attendance multithread
+
+
+package shri;
+//Class to represent student attendance for a specific class
+class ThreadAttendance extends Thread {
+        private String className;
+        private String[] studentsPresent;
+        public ThreadAttendance(String className, String[] studentsPresent) {
+                this.className = className;
+                this.studentsPresent = studentsPresent;
+        }
+        @Override
+        public void run() {
+                System.out.println("Class: " + className);
+                for (String student : studentsPresent) {
+                        System.out.println("\t- " + student);
+                }
+        }
+}
+//Class representing a student arriving late
+class RunnableAttendance implements Runnable {
+        private String studentName;
+        private int minutesLate;
+        public RunnableAttendance(String studentName, int minutesLate) {
+                this.studentName = studentName;
+                this.minutesLate = minutesLate;
+        }
+        @Override
+        public void run() {
+                System.out.println(studentName + " arrived " + minutesLate + " minutes late.");
+        }
+}
+public class AttendanceManagementSystem {
+        public static void main(String[] args) {
+//Create threads for attending classes
+                ThreadAttendance mathAttendance = new ThreadAttendance("Mathematics",
+                                new String[] { "Shriyog", "Aryan", "Naresh" });
+                ThreadAttendance englishAttendance = new ThreadAttendance("English",
+                                new String[] { "Soham", "Sumit", "Varun" });
+//Start attendance threads for different classes
+                mathAttendance.start();
+                englishAttendance.start();
+//Simulate students arriving late (using a single thread)
+                new Thread(new RunnableAttendance("Shriyog", 5)).start();
+                new Thread(new RunnableAttendance("Sumit", 10)).start();
+        }
+}
+
+
+
+
+13. All 3 constructors
+
+
+package shri;
+public class constructors {
+        private int value;
+        // Default constructor
+        public constructors() {
+                System.out.println("Default constructor called.");
+                this.value = 0;
+        }
+        // Parameterized constructor
+        public constructors(int value) {
+                System.out.println("Parameterized constructor called with value: " + value);
+                this.value = value;
+        }
+        // Copy constructor
+        public constructors(constructors original) {
+                System.out.println("Copy constructor called.");
+                this.value = original.value;
+        }
+        // Getter method
+        public int getValue() {
+                return value;
+        }
+        public static void main(String[] args) {
+                // Creating objects using different constructors
+                constructors obj1 = new constructors(); // Default constructor
+                constructors obj2 = new constructors(10); // Parameterized constructor
+                constructors obj3 = new constructors(obj2); // Copy constructor
+                // Displaying values of objects
+                System.out.println("\nValues of objects:");
+                System.out.println("obj1 value: " + obj1.getValue());
+                System.out.println("obj2 value: " + obj2.getValue());
+                System.out.println("obj3 value: " + obj3.getValue());
+        }
+}
+
+
+14. Copy constructor
+
+
+package shri;
+public class copy {
+        private String name;
+        private int age;
+        // Copy constructor
+        public copy(copy original) {
+                this.name = original.name;
+                this.age = original.age;
+        }
+        // Constructor
+        public copy(String name, int age) {
+                this.name = name;
+                this.age = age;
+        }
+        // Getter methods
+        public String getName() {
+                return name;
+        }
+        public int getAge() {
+                return age;
+        }
+        public static void main(String[] args) {
+                // Creating an object using constructor
+                copy person1 = new copy("John", 30);
+                // Creating a copy of the object using the copy constructor
+                copy person2 = new copy(person1);
+                // Displaying the details of both objects
+                System.out.println("Details of person1:");
+                System.out.println("Name: " + person1.getName());
+                System.out.println("Age: " + person1.getAge());
+                System.out.println("\nDetails of person2 (copy of person1):");
+                System.out.println("Name: " + person2.getName());
+                System.out.println("Age: " + person2.getAge());
+        }
+}
+
+
+15. Course enrollment management
+
+
+package shri;
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+class Course {
+        private String courseId;
+        private String courseName;
+        private ArrayList<String> studentNames;
+        private ArrayList<String> studentIds;
+
+
+        public Course(String courseId, String courseName) {
+                this.courseId = courseId;
+                this.courseName = courseName;
+                this.studentNames = new ArrayList<>();
+                this.studentIds = new ArrayList<>();
+        }
+
+
+        public String getCourseId() {
+                return courseId;
+        }
+
+
+        public void addStudent(String studentId, String studentName) {
+                studentIds.add(studentId);
+                studentNames.add(studentName);
+        }
+
+
+        public boolean removeStudent(String studentId) {
+                int index = studentIds.indexOf(studentId);
+                if (index != -1) {
+                        studentIds.remove(index);
+                        studentNames.remove(index);
+                        return true;
+                }
+                return false;
+        }
+
+
+        public void displayDetails() {
+                System.out.println("Course ID: " + courseId);
+                System.out.println("Course Name: " + courseName);
+                System.out.println("Students Enrolled:");
+                for (int i = 0; i < studentIds.size(); i++) {
+                        System.out.println("Student ID: " + studentIds.get(i) + ", Student Name: " + studentNames.get(i));
+                }
+        }
+}
+
+
+public class CourseEnrollmentManager {
+        public static void main(String[] args) {
+                ArrayList<Course> courses = new ArrayList<>();
+                Scanner scanner = new Scanner(System.in);
+
+
+                while (true) {
+                        System.out.println("\nMENU:");
+                        System.out.println("1. Add Course");
+                        System.out.println("2. Enroll Student");
+                        System.out.println("3. Remove Student");
+                        System.out.println("4. Display Course Details");
+                        System.out.println("5. Exit");
+                        System.out.print("Enter your choice: ");
+                        int choice = scanner.nextInt();
+                        scanner.nextLine(); // Consume newline
+
+
+                        switch (choice) {
+                        case 1:
+                                addCourse(scanner, courses);
+                                break;
+                        case 2:
+                                enrollStudent(scanner, courses);
+                                break;
+                        case 3:
+                                removeStudent(scanner, courses);
+                                break;
+                        case 4:
+                                displayCourseDetails(scanner, courses);
+                                break;
+                        case 5:
+                                System.out.println("Exiting program...");
+                                scanner.close();
+                                return;
+                        default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                }
+        }
+
+
+        private static void addCourse(Scanner scanner, ArrayList<Course> courses) {
+                System.out.print("Enter Course ID: ");
+                String courseId = scanner.nextLine();
+                System.out.print("Enter Course Name: ");
+                String courseName = scanner.nextLine();
+                courses.add(new Course(courseId, courseName));
+                System.out.println("Course added successfully.");
+        }
+
+
+        private static void enrollStudent(Scanner scanner, ArrayList<Course> courses) {
+                System.out.print("Enter Course ID: ");
+                String courseId = scanner.nextLine();
+                Course course = findCourse(courses, courseId);
+                if (course != null) {
+                        System.out.print("Enter Student ID: ");
+                        String studentId = scanner.nextLine();
+                        System.out.print("Enter Student Name: ");
+                        String studentName = scanner.nextLine();
+                        course.addStudent(studentId, studentName);
+                        System.out.println("Student enrolled successfully.");
+                } else {
+                        System.out.println("Course not found.");
+                }
+        }
+
+
+        private static void removeStudent(Scanner scanner, ArrayList<Course> courses) {
+                System.out.print("Enter Course ID: ");
+                String courseId = scanner.nextLine();
+                Course course = findCourse(courses, courseId);
+                if (course != null) {
+                        System.out.print("Enter Student ID: ");
+                        String studentId = scanner.nextLine();
+                        if (course.removeStudent(studentId)) {
+                                System.out.println("Student removed successfully.");
+                        } else {
+                                System.out.println("Student not found in the course.");
+                        }
+                } else {
+                        System.out.println("Course not found.");
+                }
+        }
+
+
+        private static void displayCourseDetails(Scanner scanner, ArrayList<Course> courses) {
+                System.out.print("Enter Course ID: ");
+                String courseId = scanner.nextLine();
+                Course course = findCourse(courses, courseId);
+                if (course != null) {
+                        course.displayDetails();
+                } else {
+                        System.out.println("Course not found.");
+                }
+        }
+
+
+        private static Course findCourse(ArrayList<Course> courses, String courseId) {
+                for (Course course : courses) {
+                        if (course.getCourseId().equals(courseId)) {
+                                return course;
+                        }
+                }
+                return null;
+        }
+}
+
+
+16. default constructor
+
+
+package shri;
+public class def {
+        public def() {
+                System.out.println("Default Constructor Created!!");
+        }
+        public static void main(String[] args) {
+                def obj = new def();
+        }
+}
+
+
+17. Encapsulation
+
+
+package shri;
+public class encapsulation {
+        // Private variables
+        private String name;
+        private int age;
+        // Getter methods
+        public String getName() {
+                return name;
+        }
+        public int getAge() {
+                return age;
+        }
+        // Setter methods
+        public void setName(String name) {
+                this.name = name;
+        }
+        public void setAge(int age) {
+                if (age >= 0) {
+                        this.age = age;
+                } else {
+                        System.out.println("Age cannot be negative.");
+                }
+        }
+        public static void main(String[] args) {
+                encapsulation obj = new encapsulation();
+                // Setting values using setter methods
+                obj.setName("John");
+                obj.setAge(30);
+                // Getting values using getter methods
+                System.out.println("Name: " + obj.getName());
+                System.out.println("Age: " + obj.getAge());
+                // Attempting to set age to a negative value
+                obj.setAge(-5); // This will print "Age cannot be negative."
+        }
+}
+
+
+18. Hierarchical inheritance
+
+
+package shri;
+//Parent class
+class Animal {
+public void sound() {
+    System.out.println("Animal makes a sound");
+}
+}
+//Child class inheriting from Animal
+class Dog extends Animal {
+public void sound() {
+    System.out.println("Dog barks");
+}
+}
+//Another child class inheriting from Animal
+class Cat extends Animal {
+public void sound() {
+    System.out.println("Cat meows");
+}
+}
+public class hierarchical {
+public static void main(String[] args) {
+    // Creating objects of child classes
+    Dog dog = new Dog();
+    Cat cat = new Cat();
+    // Calling methods of each child class
+    dog.sound(); // From Dog class
+    cat.sound(); // From Cat class
+}
+}
+
+
+19. Hybrid Inheritance
+
+
+package shri;
+//Parent class
+class Animal {
+public void sound() {
+    System.out.println("Animal makes a sound");
+}
+}
+//Interface
+interface Bird {
+void fly();
+}
+//Child class inheriting from Animal
+class Dog extends Animal {
+public void sound() {
+    System.out.println("Dog barks");
+}
+}
+//Child class inheriting from Animal and implementing Bird interface
+class Parrot extends Animal implements Bird {
+@Override
+public void fly() {
+    System.out.println("Parrot flies");
+}
+}
+public class hybrid {
+public static void main(String[] args) {
+    // Creating object of class inheriting from both Animal and Bird
+    Parrot parrot = new Parrot();
+    // Calling methods from both classes/interfaces
+    parrot.sound(); // From Animal class
+    parrot.fly();   // From Bird interface
+}
+}
+
+
+20. Multilevel inheritance
+
+
+package shri;
+//Parent class
+class Animal {
+public void sound() {
+    System.out.println("Animal makes a sound");
+}
+}
+//Child class inheriting from Animal
+class Dog extends Animal {
+public void sound() {
+    System.out.println("Dog barks");
+}
+}
+//Grandchild class inheriting from Dog
+class Labrador extends Dog {
+public void color() {
+    System.out.println("Labrador is brown in color");
+}
+}
+public class multilevel {
+public static void main(String[] args) {
+    // Creating object of grandchild class
+    Labrador labrador = new Labrador();
+    // Calling methods of parent and grandparent classes
+    labrador.sound(); // From Dog class
+    labrador.color(); // From Labrador class
+}
+}
+
+
+21. Multiple inheritance
+
+
+package shri;
+//Interface defining animal behavior
+interface Animal {
+void sound();
+}
+//Interface defining living organism behavior
+interface LivingOrganism {
+void breathe();
+}
+//Class implementing both interfaces
+class Dog implements Animal, LivingOrganism {
+@Override
+public void sound() {
+    System.out.println("Dog barks");
+}
+@Override
+public void breathe() {
+    System.out.println("Dog breathes using lungs");
+}
+}
+public class multiple {
+public static void main(String[] args) {
+    // Creating object of class implementing multiple interfaces
+    Dog dog = new Dog();
+    // Calling methods from both interfaces
+    dog.sound();    // From Animal interface
+    dog.breathe();  // From LivingOrganism interface
+}
+}
+
+
+22. Multithread
+
+
+package shri;
+class MyThread extends Thread {
+        public void run() {
+                for (int i = 1; i <= 5; i++) {
+                        System.out.println("Thread: " + Thread.currentThread().getId() + " - Count: " + i);
+                        try {
+                                Thread.sleep(1000); // Sleep for 1 second
+                        } catch (InterruptedException e) {
+                                System.out.println(e);
+                        }
+                }
+        }
+}
+public class multithread {
+        public static void main(String[] args) {
+                MyThread thread1 = new MyThread();
+                MyThread thread2 = new MyThread();
+                thread1.start(); // Start the first thread
+                thread2.start(); // Start the second thread
+        }
+}
+
+
+23. Overloading
+
+
+package shri;
+public class overloading {
+        public void area() {
+                System.out.println("Find Area of:");
+        }
+        public void area(double r) {
+                System.out.println("Circle:" + 3.14 * r * r);
+        }
+        public void area(double b, double h) {
+                System.out.println("Triangle:" + 0.5 * b * h);
+        }
+        public static void main(String[] args) {
+                overloading sh = new overloading();
+                sh.area();
+                sh.area(6);
+                sh.area(6, 7);
+        }
+}
+
+
+24. Overriding
+
+
+package shri;
+class vehicle {
+        void bike() {
+                System.out.println("Hunk Starts");
+        }
+}
+public class overriding extends vehicle {
+        void bike() {
+                System.out.println("It goes WROOM WROOMM WROOMMM!!");
+                System.out.println("RATATATAAAAAAAAAAAAAA!!!!!!");
+        }
+        public static void main(String[] args) {
+                overriding abc = new overriding();
+                vehicle pqr = new vehicle();
+                pqr.bike();
+                abc.bike();
+        }
+}
+
+
+25. Parametrized constructor
+
+
+package shri;
+public class para {
+   private int length;
+   private int width;
+   // Parameterized constructor
+   public para(int length, int width) {
+       this.length = length;
+       this.width = width;
+   }
+   // Method to calculate area
+   public int calculateArea() {
+       return length * width;
+   }
+   public static void main(String[] args) {
+       // Creating an object using parameterized constructor
+       para rectangle = new para(5, 3);
+       // Calculating and displaying the area of the rectangle
+       System.out.println("Area of the rectangle: " + rectangle.calculateArea());
+   }
+}
+
+
+26. Single level Inheritance
+
+
+package shri;
+//Parent class
+class Animal {
+public void sound() {
+    System.out.println("Animal makes a sound");
+}
+}
+//Child class inheriting from Animal
+class Dog extends Animal {
+public void sound() {
+    System.out.println("Dog barks");
+}
+}
+public class single {
+public static void main(String[] args) {
+    // Creating object of child class
+    Dog dog = new Dog();
+  
+    // Calling method of parent class
+    dog.sound();
+  
+}
+}
+
+
+27. 3-D array
+
+
+package shri;
+public class ThreeDarray {
+        public static void main(String[] args) {
+                // Creating a 3D array with dimensions 2x3x4
+                int[][][] cube = { { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } },
+                                { { 13, 14, 15, 16 }, { 17, 18, 19, 20 }, { 21, 22, 23, 24 } } };
+                // Displaying the elements of the 3D array
+                System.out.println("Elements of the 3D array:");
+                for (int i = 0; i < cube.length; i++) {
+                        System.out.println("Layer " + (i + 1) + ":");
+                        for (int j = 0; j < cube[i].length; j++) {
+                                for (int k = 0; k < cube[i][j].length; k++) {
+                                        System.out.print(cube[i][j][k] + " ");
+                                }
+                                System.out.println();
+                        }
+                        System.out.println();
+                }
+                // Accessing a specific element of the 3D array
+                int element = cube[1][2][1];
+                System.out.println("Element at index [1][2][1]: " + element);
+        }
+}
+
+
+28. 2-D array
+
+
+package shri;
+public class twodarray {
+        public static void main(String[] args) {
+                // Creating a 2D array with 3 rows and 4 columns
+                int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+                // Displaying the elements of the 2D array
+                System.out.println("Elements of the 2D array:");
+                for (int i = 0; i < matrix.length; i++) {
+                        for (int j = 0; j < matrix[i].length; j++) {
+                                System.out.print(matrix[i][j] + " ");
+                        }
+                        System.out.println();
+                }
+                // Accessing a specific element of the 2D array
+                int element = matrix[1][2];
+                System.out.println("Element at index [1][2]: " + element);
+        }
+}
+
+
+29. Student Management System
+
+
+package shri;
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+class Student {
+        private String name;
+        private int id;
+        private String department;
+
+
+        public Student(String name, int id, String department) {
+                this.name = name;
+                this.id = id;
+                this.department = department;
+        }
+
+
+        public String getName() {
+                return name;
+        }
+
+
+        public int getId() {
+                return id;
+        }
+
+
+        public String getDepartment() {
+                return department;
+        }
+}
+
+
+public class StudentManagementSystem {
+        public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+
+
+                ArrayList<Student> students = new ArrayList<>();
+
+
+                while (true) {
+                        System.out.println("\nMENU:");
+                        System.out.println("1. Add Student");
+                        System.out.println("2. Display Students");
+                        System.out.println("3. Remove Student");
+                        System.out.println("4. Exit");
+                        System.out.print("Enter your choice: ");
+                        int choice = scanner.nextInt();
+
+
+                        switch (choice) {
+                        case 1:
+                                addStudent(scanner, students);
+                                break;
+                        case 2:
+                                displayStudents(students);
+                                break;
+                        case 3:
+                                removeStudent(scanner, students);
+                                break;
+                        case 4:
+                                System.out.println("Exiting program...");
+                                scanner.close();
+                                return;
+                        default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                }
+        }
+
+
+        private static void addStudent(Scanner scanner, ArrayList<Student> students) {
+                scanner.nextLine(); // Consume newline
+                System.out.print("Enter student name: ");
+                String name = scanner.nextLine();
+                System.out.print("Enter student ID: ");
+                int id = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                System.out.print("Enter student department: ");
+                String department = scanner.nextLine();
+
+
+                Student student = new Student(name, id, department);
+                students.add(student);
+                System.out.println("Student added successfully.");
+        }
+
+
+        private static void displayStudents(ArrayList<Student> students) {
+                System.out.println("\nStudent List:");
+                if (students.isEmpty()) {
+                        System.out.println("No students added yet.");
+                } else {
+                        for (Student student : students) {
+                                System.out.println("Name: " + student.getName() + ", ID: " + student.getId() + ", Department: "
+                                                + student.getDepartment());
+                        }
+                }
+        }
+
+
+        private static void removeStudent(Scanner scanner, ArrayList<Student> students) {
+                System.out.print("Enter student ID to remove: ");
+                int idToRemove = scanner.nextInt();
+
+
+                boolean removed = false;
+                for (int i = 0; i < students.size(); i++) {
+                        if (students.get(i).getId() == idToRemove) {
+                                students.remove(i);
+                                removed = true;
+                                System.out.println("Student with ID " + idToRemove + " removed successfully.");
+                                break;
+                        }
+                }
+                if (!removed) {
+                        System.out.println("Student with ID " + idToRemove + " not found.");
+                }
+        }
+}
+
+
+30. Ticket Management System 
+
+
+package shri;
+import java.util.Scanner;
+class Ticket {
+        private String passengerName;
+        private boolean isBooked;
+        public Ticket() {
+                this.passengerName = null;
+                this.isBooked = false;
+        }
+        public String getPassengerName() {
+                return passengerName;
+        }
+        public boolean isBooked() {
+                return isBooked;
+        }
+        public void bookTicket(String passengerName) {
+                this.passengerName = passengerName;
+                isBooked = true;
+        }
+        public void cancelTicket() {
+                this.passengerName = null;
+                isBooked = false;
+        }
+}
+public class TicketManagementSystem {
+        public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                // Initialize tickets
+                Ticket[] tickets = new Ticket[10];
+                for (int i = 0; i < tickets.length; i++) {
+                        tickets[i] = new Ticket();
+                }
+                while (true) {
+                        System.out.println("\nMENU:");
+                        System.out.println("1. Book Ticket");
+                        System.out.println("2. Cancel Ticket");
+                        System.out.println("3. Display Seats");
+                        System.out.println("4. Exit");
+                        System.out.print("Enter your choice: ");
+                        int choice = scanner.nextInt();
+                        switch (choice) {
+                        case 1:
+                                bookTicket(scanner, tickets);
+                                break;
+                        case 2:
+                                cancelTicket(scanner, tickets);
+                                break;
+                        case 3:
+                                displaySeats(tickets);
+                                break;
+                        case 4:
+                                System.out.println("Exiting program...");
+                                scanner.close();
+                                return;
+                        default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                }
+        }
+        private static void bookTicket(Scanner scanner, Ticket[] tickets) {
+                System.out.print("Enter seat number to book (1-10): ");
+                int seatNumber = scanner.nextInt();
+                if (seatNumber < 1 || seatNumber > tickets.length) {
+                        System.out.println("Invalid seat number. Please enter a valid seat number.");
+                        return;
+                }
+                Ticket ticket = tickets[seatNumber - 1];
+                if (ticket.isBooked()) {
+                        System.out.println("Seat " + seatNumber + " is already booked.");
+                } else {
+                        scanner.nextLine(); // Consume newline
+                        System.out.print("Enter passenger name: ");
+                        String passengerName = scanner.nextLine();
+                        ticket.bookTicket(passengerName);
+                        System.out.println("Ticket booked successfully for seat " + seatNumber + ".");
+                }
+        }
+        private static void cancelTicket(Scanner scanner, Ticket[] tickets) {
+                System.out.print("Enter seat number to cancel (1-10): ");
+                int seatNumber = scanner.nextInt();
+                if (seatNumber < 1 || seatNumber > tickets.length) {
+                        System.out.println("Invalid seat number. Please enter a valid seat number.");
+                        return;
+                }
+                Ticket ticket = tickets[seatNumber - 1];
+                if (ticket.isBooked()) {
+                        ticket.cancelTicket();
+                        System.out.println("Ticket canceled successfully for seat " + seatNumber + ".");
+                } else {
+                        System.out.println("No booking found for seat " + seatNumber + ".");
+                }
+        }
+        private static void displaySeats(Ticket[] tickets) {
+                System.out.println("Seat Availability:");
+                for (int i = 0; i < tickets.length; i++) {
+                        if (tickets[i].isBooked()) {
+                                System.out.println("Seat " + (i + 1) + ": Booked by " + tickets[i].getPassengerName());
+                        } else {
+                                System.out.println("Seat " + (i + 1) + ": Available");
+                        }
+                }
+        }
+}
+
+
+31. All types of inheritance
+package shri;
+//Parent class (Superclass)
+class Animal {
+String name;
+Animal(String name) {
+    this.name = name;
+}
+void sound() {
+    System.out.println(name + " makes a sound");
+}
+}
+//Single Inheritance (Subclass)
+class Dog extends Animal {
+Dog(String name) {
+    super(name);
+}
+void bark() {
+    System.out.println(name + " barks");
+}
+}
+//Multi-level Inheritance
+class Labrador extends Dog {
+Labrador(String name) {
+    super(name);
+}
+void color() {
+    System.out.println(name + " is brown in color");
+}
+}
+//Hierarchical Inheritance
+class Cat extends Animal {
+Cat(String name) {
+    super(name);
+}
+void meow() {
+    System.out.println(name + " meows");
+}
+}
+//Interface for Multiple Inheritance
+interface Bird {
+void fly();
+}
+//Hybrid Inheritance
+class Parrot extends Animal implements Bird {
+Parrot(String name) {
+    super(name);
+}
+@Override
+void sound() {
+    System.out.println(name + " squawks");
+}
+@Override
+public void fly() {
+    System.out.println(name + " flies");
+}
+}
+public class inheritance {
+public static void main(String[] args) {
+    // Single Inheritance
+    Dog dog = new Dog("Doggy");
+    dog.sound(); // Output: Doggy makes a sound
+    dog.bark();  // Output: Doggy barks
+    // Multi-level Inheritance
+    Labrador labrador = new Labrador("Bruno");
+    labrador.sound(); // Output: Bruno makes a sound
+    labrador.bark();  // Output: Bruno barks
+    labrador.color(); // Output: Bruno is brown in color
+    // Hierarchical Inheritance
+    Cat cat = new Cat("Kitty");
+    cat.sound(); // Output: Kitty makes a sound
+    cat.meow();  // Output: Kitty meows
+    // Interface for Multiple Inheritance
+    Parrot parrot = new Parrot("Polly");
+    parrot.sound(); // Output: Polly squawks
+    parrot.fly();   // Output: Polly flies
+}
+}
+
+
+32. Interface
+
+
+package shri;
+//Interface definition
+interface Animal {
+        void sound(); // Abstract method
+}
+//Class implementing the interface
+class Dog implements Animal {
+        @Override
+        public void sound() {
+                System.out.println("Dog barks");
+        }
+}
+//Main class
+public class Interface {
+        public static void main(String[] args) {
+                // Create an object of Dog class
+                Dog dog = new Dog();
+                // Call the method defined in the interface
+                dog.sound(); // Output: Dog barks
+        }
+}
+
+
+33. Library Management System
+
+
+package shri;
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+class Book {
+        private String title;
+        private String author;
+        private boolean isAvailable;
+
+
+        public Book(String title, String author) {
+                this.title = title;
+                this.author = author;
+                this.isAvailable = true;
+        }
+
+
+        public String getTitle() {
+                return title;
+        }
+
+
+        public String getAuthor() {
+                return author;
+        }
+
+
+        public boolean isAvailable() {
+                return isAvailable;
+        }
+
+
+        public void checkout() {
+                isAvailable = false;
+        }
+
+
+        public void checkin() {
+                isAvailable = true;
+        }
+}
+
+
+public class LibraryManagementSystem {
+        public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+
+
+                ArrayList<Book> library = new ArrayList<>();
+
+
+                // Adding books to the library
+                library.add(new Book("Why Hitler was right?", "Shriyog More"));
+                library.add(new Book("Health & Fitness", "Aryan Pawar"));
+                library.add(new Book("Business Strategies 101", "Naresh Suthar"));
+
+
+                while (true) {
+                        System.out.println("\nMENU:");
+                        System.out.println("1. Display Books");
+                        System.out.println("2. Checkout Book");
+                        System.out.println("3. Checkin Book");
+                        System.out.println("4. Exit");
+                        System.out.print("Enter your choice: ");
+                        int choice = scanner.nextInt();
+
+
+                        switch (choice) {
+                        case 1:
+                                displayBooks(library);
+                                break;
+                        case 2:
+                                checkoutBook(scanner, library);
+                                break;
+                        case 3:
+                                checkinBook(scanner, library);
+                                break;
+                        case 4:
+                                System.out.println("Exiting program...");
+                                scanner.close();
+                                return;
+                        default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                }
+        }
+
+
+        private static void displayBooks(ArrayList<Book> library) {
+                System.out.println("\nLibrary Catalog:");
+                for (Book book : library) {
+                        System.out.println("Title: " + book.getTitle() + ", Author: " + book.getAuthor() + ", Status: "
+                                        + (book.isAvailable() ? "Available" : "Checked out"));
+                }
+        }
+
+
+        private static void checkoutBook(Scanner scanner, ArrayList<Book> library) {
+                scanner.nextLine(); // Consume newline
+                System.out.print("Enter title of the book to checkout: ");
+                String title = scanner.nextLine();
+
+
+                for (Book book : library) {
+                        if (book.getTitle().equalsIgnoreCase(title)) {
+                                if (book.isAvailable()) {
+                                        book.checkout();
+                                        System.out.println("Book '" + title + "' checked out successfully.");
+                                        return;
+                                } else {
+                                        System.out.println("Book '" + title + "' is already checked out.");
+                                        return;
+                                }
+                        }
+                }
+                System.out.println("Book '" + title + "' not found in the library.");
+        }
+
+
+        private static void checkinBook(Scanner scanner, ArrayList<Book> library) {
+                scanner.nextLine(); // Consume newline
+                System.out.print("Enter title of the book to checkin: ");
+                String title = scanner.nextLine();
+
+
+                for (Book book : library) {
+                        if (book.getTitle().equalsIgnoreCase(title)) {
+                                if (!book.isAvailable()) {
+                                        book.checkin();
+                                        System.out.println("Book '" + title + "' checked in successfully.");
+                                        return;
+                                } else {
+                                        System.out.println("Book '" + title + "' is already available in the library.");
+                                        return;
+                                }
+                        }
+                }
+                System.out.println("Book '" + title + "' not found in the library.");
+        }
+}
+
+
+
+
+
+
+—----------------------------------------------------------------------------------------------------------------------------
+
+
+JDBC 
+
+
+import java.sql.*;
+import java.util.Scanner;
+
+
+public class DemoDb {
+    // JDBC URL, username, and password of MySQL server
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test1";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "vu2022";
+
+
+    // JDBC variables for opening, closing and managing connection
+    private static Connection connection;
+    private static Statement statement;
+    private static ResultSet resultSet;
+
+
+    public static void main(String[] args) {
+        try {
+            // 1. Connect to the database
+            connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+            System.out.println("Connected to the database");
+
+
+            // 2. Create a table
+            createTable();
+
+
+            // 3. Insert data into the table
+            insertData();
+
+
+            // 4. Query data from the table
+            queryData();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 5. Close the resources
+            closeResources();
+        }
+    }
+
+
+    private static void createTable() throws SQLException {
+        statement = connection.createStatement();
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS students (" +
+                "id INT AUTO_INCREMENT PRIMARY KEY," +
+                "name VARCHAR(50)," +
+                "age INT)";
+        statement.executeUpdate(createTableSQL);
+        System.out.println("Table created successfully");
+    }
+
+
+    private static void insertData() throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the name of the student: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter the age of the student: ");
+        int age = scanner.nextInt();
+
+
+        statement = connection.createStatement();
+        String insertDataSQL = "INSERT INTO students (name, age) VALUES " +
+                "('" + name + "', " + age + ")";
+        int rowsAffected = statement.executeUpdate(insertDataSQL);
+        System.out.println(rowsAffected + " row(s) inserted");
+    }
+
+
+    private static void queryData() throws SQLException {
+        statement = connection.createStatement();
+        String queryDataSQL = "SELECT * FROM students";
+        resultSet = statement.executeQuery(queryDataSQL);
+
+
+        // Iterate over the result set and print the data
+        System.out.println("Query result:");
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            int age = resultSet.getInt("age");
+            System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age);
+        }
+    }
+
+
+    private static void closeResources() {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+                System.out.println("Connection closed");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+—----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Coded By: Shriyog More
+“Be Careful Who You Trust Sergeant…”
